@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contoh - Pemilih Ide Produk</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <h1><i class="fa-solid fa-lightbulb"></i> Product Idea Selector - Decision Support System</h1>
+  <nav>
+    <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+    <a href="cara-pakai.html"><i class="fa-solid fa-circle-info"></i> Cara Pakai</a>
+    <a href="contoh.html" class="active"><i class="fa-solid fa-flask"></i> Contoh</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2><i class="fa-solid fa-vial"></i> Contoh Data Produk</h2>
+    <p class="helper-text">
+      Klik salah satu contoh di bawah untuk memuat data produk contoh. Setelah itu, buka halaman Beranda untuk melihat hasil analisis.
+    </p>
+    
+    <div class="grid">
+      <div class="example-card">
+        <h3>🎯 Startup Digital</h3>
+        <p>Contoh untuk produk digital dan aplikasi</p>
+        <button class="btn-primary load-example" data-example="digital">
+          Muat Contoh
+        </button>
+      </div>
+      
+      <div class="example-card">
+        <h3>🛍️ Bisnis Retail</h3>
+        <p>Contoh untuk produk fisik dan e-commerce</p>
+        <button class="btn-primary load-example" data-example="retail">
+          Muat Contoh
+        </button>
+      </div>
+      
+      <div class="example-card">
+        <h3>🍔 Usaha Kuliner</h3>
+        <p>Contoh untuk food & beverage</p>
+        <button class="btn-primary load-example" data-example="fandb">
+          Muat Contoh
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+// Contoh data untuk berbagai skenario
+const examples = {
+  digital: [
+    { name: "Aplikasi Fintech", demand: 85, competition: 40, profit: 90, capital: 70, productionTime: 60, risk: 50 },
+    { name: "Platform E-learning", demand: 80, competition: 60, profit: 75, capital: 50, productionTime: 40, risk: 30 },
+    { name: "SaaS untuk UMKM", demand: 75, competition: 70, profit: 85, capital: 60, productionTime: 50, risk: 40 }
+  ],
+  retail: [
+    { name: "Kaos Custom Premium", demand: 70, competition: 50, profit: 65, capital: 40, productionTime: 30, risk: 20 },
+    { name: "Alat Fitness Rumahan", demand: 85, competition: 60, profit: 70, capital: 60, productionTime: 40, risk: 35 },
+    { name: "Produk Kecantikan Organik", demand: 80, competition: 55, profit: 75, capital: 45, productionTime: 35, risk: 25 }
+  ],
+  fandb: [
+    { name: "Kopi Spesialti", demand: 85, competition: 70, profit: 65, capital: 40, productionTime: 20, risk: 30 },
+    { name: "Makanan Beku Sehat", demand: 80, competition: 50, profit: 70, capital: 60, productionTime: 40, risk: 35 },
+    { name: "Minuman Herbal", demand: 75, competition: 45, profit: 80, capital: 50, productionTime: 35, risk: 25 }
+  ]
+};
+
+// Event listener untuk tombol contoh
+document.querySelectorAll('.load-example').forEach(button => {
+  button.addEventListener('click', function() {
+    const exampleType = this.dataset.example;
+    const exampleData = examples[exampleType];
+    
+    if (exampleData) {
+      localStorage.setItem("pdss_products", JSON.stringify(exampleData));
+      alert(`Contoh data "${exampleType}" berhasil dimuat! Buka halaman Beranda untuk melihat analisis.`);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

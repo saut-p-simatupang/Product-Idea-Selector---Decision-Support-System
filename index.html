@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pemilih Ide Produk</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- ICON (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Chart.js untuk visualisasi -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <h1><i class="fa-solid fa-lightbulb"></i> Product Idea Selector - Decision Support System</h1>
+  <nav>
+    <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Beranda</a>
+    <a href="cara-pakai.html"><i class="fa-solid fa-circle-info"></i> Cara Pakai</a>
+    <a href="contoh.html"><i class="fa-solid fa-flask"></i> Contoh</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- TEMPLATE INDUSTRI -->
+  <section class="card">
+    <h2><i class="fa-solid fa-industry"></i> Pilih Template Industri</h2>
+    <div class="grid">
+      <button class="template-btn" data-template="fashion">
+        <i class="fa-solid fa-shirt"></i> Fashion
+      </button>
+      <button class="template-btn" data-template="fandb">
+        <i class="fa-solid fa-utensils"></i> F&B
+      </button>
+      <button class="template-btn" data-template="digital">
+        <i class="fa-solid fa-laptop"></i> Digital
+      </button>
+      <button class="template-btn" data-template="jasa">
+        <i class="fa-solid fa-handshake"></i> Jasa
+      </button>
+    </div>
+  </section>
+
+  <!-- TAMBAH PRODUK -->
+  <section class="card">
+    <h2><i class="fa-solid fa-plus"></i> Tambah Ide Produk</h2>
+    <p class="helper-text">
+      Masukkan ide produk dengan kriteria lengkap.
+    </p>
+
+    <form id="productForm">
+      <div class="grid">
+
+        <div class="field">
+          <label><i class="fa-solid fa-tag"></i> Nama Produk</label>
+          <input id="name" type="text" placeholder="Contoh: Kopi Botol" required />
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-users"></i> Minat Pembeli (1–100)</label>
+          <input id="demand" type="number" min="1" max="100" required />
+          <small>1 = rendah, 100 = tinggi</small>
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-store"></i> Banyak Pesaing (1–100)</label>
+          <input id="competition" type="number" min="1" max="100" required />
+          <small>1 = sedikit, 100 = banyak</small>
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-coins"></i> Keuntungan (1–100)</label>
+          <input id="profit" type="number" min="1" max="100" required />
+          <small>1 = rendah, 100 = tinggi</small>
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-sack-dollar"></i> Modal Awal (1–100)</label>
+          <input id="capital" type="number" min="1" max="100" required />
+          <small>1 = murah, 100 = mahal</small>
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-clock"></i> Waktu Produksi (1–100)</label>
+          <input id="productionTime" type="number" min="1" max="100" required />
+          <small>1 = cepat, 100 = lambat</small>
+        </div>
+
+        <div class="field">
+          <label><i class="fa-solid fa-triangle-exclamation"></i> Risiko (1–100)</label>
+          <input id="risk" type="number" min="1" max="100" required />
+          <small>1 = rendah, 100 = tinggi</small>
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" type="submit">
+          <i class="fa-solid fa-check"></i> Tambah Produk
+        </button>
+        <button class="btn-secondary" type="button" id="resetBtn">
+          <i class="fa-solid fa-trash"></i> Hapus Semua
+        </button>
+      </div>
+
+      <p id="formFeedback" class="feedback"></p>
+    </form>
+  </section>
+
+  <!-- PRIORITAS KRITERIA -->
+  <section class="card">
+    <h2><i class="fa-solid fa-sliders"></i> Atur Prioritas Kriteria</h2>
+    
+    <div class="grid">
+      <div class="field">
+        <label>Minat Pembeli (%)</label>
+        <input id="wDemand" type="number" min="0" max="100" value="30" />
+      </div>
+      <div class="field">
+        <label>Banyak Pesaing (%)</label>
+        <input id="wCompetition" type="number" min="0" max="100" value="20" />
+      </div>
+      <div class="field">
+        <label>Keuntungan (%)</label>
+        <input id="wProfit" type="number" min="0" max="100" value="25" />
+      </div>
+      <div class="field">
+        <label>Modal Awal (%)</label>
+        <input id="wCapital" type="number" min="0" max="100" value="10" />
+      </div>
+      <div class="field">
+        <label>Waktu Produksi (%)</label>
+        <input id="wProductionTime" type="number" min="0" max="100" value="10" />
+      </div>
+      <div class="field">
+        <label>Risiko (%)</label>
+        <input id="wRisk" type="number" min="0" max="100" value="5" />
+      </div>
+    </div>
+    
+    <div class="priority-summary">
+      <p>Total Bobot: <span id="totalWeight">100</span>%</p>
+      <p id="weightFeedback" class="feedback"></p>
+    </div>
+    
+    <button class="btn-secondary" id="autoWeightBtn">
+      <i class="fa-solid fa-robot"></i> Atur Bobot Otomatis
+    </button>
+  </section>
+
+  <!-- ANALISIS SENSITIVITAS -->
+  <section class="card">
+    <h2><i class="fa-solid fa-chart-line"></i> Analisis Sensitivitas</h2>
+    <div class="grid">
+      <button class="scenario-btn" data-scenario="optimis">
+        <i class="fa-solid fa-sun"></i> Skenario Optimis
+      </button>
+      <button class="scenario-btn" data-scenario="pesimis">
+        <i class="fa-solid fa-cloud-rain"></i> Skenario Pesimis
+      </button>
+      <button class="scenario-btn" data-scenario="balanced">
+        <i class="fa-solid fa-scale-balanced"></i> Skenario Seimbang
+      </button>
+      <button class="scenario-btn" data-scenario="lowRisk">
+        <i class="fa-solid fa-shield"></i> Minim Risiko
+      </button>
+    </div>
+    <div id="sensitivityResults"></div>
+  </section>
+
+  <!-- DATA PRODUK -->
+  <section class="card">
+    <h2><i class="fa-solid fa-table"></i> Daftar Produk</h2>
+    <div class="table-container">
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Minat</th>
+            <th>Pesaing</th>
+            <th>Untung</th>
+            <th>Modal</th>
+            <th>Waktu</th>
+            <th>Risiko</th>
+            <th>Skor</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VISUALISASI DATA -->
+  <section class="card">
+    <h2><i class="fa-solid fa-chart-bar"></i> Visualisasi Perbandingan</h2>
+    <div class="chart-container">
+      <canvas id="comparisonChart"></canvas>
+    </div>
+    <div class="chart-controls">
+      <button id="chartTypeBtn" class="btn-secondary">
+        <i class="fa-solid fa-exchange-alt"></i> Ganti Tipe Chart
+      </button>
+    </div>
+  </section>
+
+  <!-- HASIL REKOMENDASI -->
+  <section class="card">
+    <h2><i class="fa-solid fa-ranking-star"></i> Hasil Rekomendasi</h2>
+    <div class="actions">
+      <button class="btn-primary" id="analyzeBtn">
+        <i class="fa-solid fa-calculator"></i> Hitung & Analisis
+      </button>
+      <button class="btn-secondary" id="exportBtn">
+        <i class="fa-solid fa-file-export"></i> Ekspor Data
+      </button>
+    </div>
+    
+    <div class="ranking-container">
+      <ul id="rankingList" class="ranking"></ul>
+    </div>
+  </section>
+
+  <!-- DASHBOARD RINGKASAN -->
+  <section class="card">
+    <h2><i class="fa-solid fa-chart-pie"></i> Dashboard Ringkasan</h2>
+    <div class="dashboard-stats">
+      <div class="stat-box" id="bestProductStat">
+        <h3><i class="fa-solid fa-trophy"></i> Produk Terbaik</h3>
+        <p class="stat-value">-</p>
+        <p class="stat-detail">Skor: -</p>
+      </div>
+      <div class="stat-box">
+        <h3><i class="fa-solid fa-chart-line"></i> Rata-rata Skor</h3>
+        <p class="stat-value" id="averageScore">-</p>
+      </div>
+      <div class="stat-box">
+        <h3><i class="fa-solid fa-balance-scale"></i> Distribusi</h3>
+        <p class="stat-value" id="scoreDistribution">-</p>
+        <p class="stat-detail">Tinggi/Medium/Rendah</p>
+      </div>
+      <div class="stat-box">
+        <h3><i class="fa-solid fa-clock"></i> Analisis Terakhir</h3>
+        <p class="stat-value" id="lastAnalysis">-</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHT & REKOMENDASI -->
+  <section class="insight-row">
+    <div class="card half">
+      <h2><i class="fa-solid fa-brain"></i> Insight Bisnis</h2>
+      <div id="insightBox" class="insight-box">
+        <p class="muted">Lakukan analisis untuk melihat insight.</p>
+      </div>
+    </div>
+
+    <div class="card half">
+      <h2><i class="fa-solid fa-bullseye"></i> Rekomendasi Tindakan</h2>
+      <div id="actionBox" class="action-box">
+        <p class="muted">Rekomendasi akan muncul setelah analisis.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

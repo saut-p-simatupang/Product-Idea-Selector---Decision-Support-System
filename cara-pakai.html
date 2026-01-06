@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cara Pakai - Pemilih Ide Produk</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <h1><i class="fa-solid fa-lightbulb"></i> Product Idea Selector - Decision Support System</h1>
+  <nav>
+    <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+    <a href="cara-pakai.html" class="active"><i class="fa-solid fa-circle-info"></i> Cara Pakai</a>
+    <a href="contoh.html"><i class="fa-solid fa-flask"></i> Contoh</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2><i class="fa-solid fa-book-open"></i> Panduan Penggunaan</h2>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Tambah Produk</h3>
+          <p>Isi form dengan detail produk Anda. Semua kriteria menggunakan skala 1-100:</p>
+          <ul>
+            <li><strong>Minat Pembeli:</strong> Seberapa besar permintaan pasar</li>
+            <li><strong>Banyak Pesaing:</strong> Tingkat persaingan di pasar</li>
+            <li><strong>Keuntungan:</strong> Potensi margin keuntungan</li>
+            <li><strong>Modal Awal:</strong> Besaran investasi awal (1=murah, 100=mahal)</li>
+            <li><strong>Waktu Produksi:</strong> Durasi dari perencanaan ke peluncuran</li>
+            <li><strong>Risiko:</strong> Tingkat risiko bisnis</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Atur Prioritas</h3>
+          <p>Tentukan seberapa penting setiap kriteria untuk bisnis Anda:</p>
+          <ul>
+            <li>Gunakan template industri untuk pengaturan otomatis</li>
+            <li>Atur manual sesuai preferensi Anda</li>
+            <li>Pastikan total bobot = 100%</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Analisis & Visualisasi</h3>
+          <p>Klik "Hitung & Analisis" untuk mendapatkan hasil:</p>
+          <ul>
+            <li>Lihat ranking produk terbaik</li>
+            <li>Gunakan analisis sensitivitas untuk berbagai skenario</li>
+            <li>Lihat visualisasi grafik untuk perbandingan</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Ambil Keputusan</h3>
+          <p>Gunakan insight dan rekomendasi untuk pengambilan keputusan:</p>
+          <ul>
+            <li>Baca insight bisnis untuk setiap produk</li>
+            <li>Ikuti rekomendasi tindakan yang diberikan</li>
+            <li>Ekspor data untuk presentasi atau analisis lanjutan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tip-box">
+      <h3><i class="fa-solid fa-lightbulb"></i> Tips Penggunaan</h3>
+      <ul>
+        <li>Gunakan skala 1-100 secara konsisten untuk semua produk</li>
+        <li>Coba berbagai template industri untuk perspektif berbeda</li>
+        <li>Gunakan analisis sensitivitas untuk melihat dampak perubahan bobot</li>
+        <li>Simpan template kustom jika memiliki preferensi spesifik</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<style>
+.steps {
+  margin: 2rem 0;
+}
+
+.step {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  margin-top: 0;
+  color: #1e293b;
+}
+
+.step-content ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.step-content li {
+  margin: 0.3rem 0;
+  color: #475569;
+}
+
+.tip-box {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #bae6fd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tip-box h3 {
+  margin-top: 0;
+  color: #0369a1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tip-box ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.tip-box li {
+  margin: 0.5rem 0;
+  color: #0c4a6e;
+}
+</style>
+
+</body>
+</html>
