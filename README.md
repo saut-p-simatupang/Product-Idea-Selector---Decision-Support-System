@@ -1,6 +1,11 @@
 # Product Idea Selector - Decision Support System 🚀
 **Website untuk membantu pengusaha memilih ide produk terbaik menggunakan sistem penilaian berbobot (SAW Method).**
 
+## 📸 Contoh Tampilan
+
+![Dashboard Product Idea Selector](assets/dashboard.png)  
+*Gambar di atas menunjukkan tampilan dashboard utama dengan ranking produk otomatis.*
+
 ---
 
 ## 🌟 Fitur Utama
