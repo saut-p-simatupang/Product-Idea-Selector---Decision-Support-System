@@ -3,8 +3,7 @@
 
 ## 📸 Contoh Tampilan
 
-![Dashboard Product Idea Selector](assets/dashboard.png)  
-*Gambar di atas menunjukkan tampilan dashboard utama dengan ranking produk otomatis.*
+![Dashboard Product Idea Selector](assets/dashboard.jpg)  
 
 ---
 
