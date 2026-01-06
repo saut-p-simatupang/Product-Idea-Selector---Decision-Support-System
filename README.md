@@ -30,10 +30,3 @@
 - **Penyimpanan:** LocalStorage  
 - **Responsive:** Mobile-first design  
 
----
-
-## 🚀 Cara Penggunaan
-
-1. Clone repository:
-```bash
-git clone https://github.com/username/product-idea-selector.git
