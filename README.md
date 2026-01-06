@@ -3,7 +3,7 @@
 
 ## 📸 Contoh Tampilan
 
-![Dashboard Product Idea Selector](assets/dashboard.jpg)  
+![Dashboard Product Idea Selector](assets/Example.jpg)  
 
 ---
 
